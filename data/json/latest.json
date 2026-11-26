@@ -1,0 +1,830 @@
+{
+  "trade_date": "2026-11-26",
+  "prev_date": null,
+  "generated_at": "2026-11-26 20:27:57 CST",
+  "market_summary": {
+    "trade_date": "2026-11-26",
+    "taiex_close": 39151.81,
+    "taiex_change": 956.38,
+    "taiex_pct": 2.5,
+    "turnover_billion": 8453.37,
+    "foreign_net_billion": -491.81,
+    "trust_net_billion": 212.13,
+    "dealer_net_billion": 128.65,
+    "total_inst_billion": -151.03,
+    "foreign_streak_days": -1,
+    "foreign_streak_amount": -491.81,
+    "source": "TWSE 官方資料",
+    "updated_at": "2026-11-26 20:26:55"
+  },
+  "trend_20d": [
+    {
+      "trade_date": "2026-11-26",
+      "foreign_net_billion": -491.81,
+      "trust_net_billion": 212.13,
+      "taiex_close": 39151.81
+    }
+  ],
+  "etf_details": {
+    "00400A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00400A",
+        "etf_name": "主動國泰動能高息",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00401A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00401A",
+        "etf_name": "主動摩根台灣鑫收",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00402A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00402A",
+        "etf_name": "主動安聯美國科技",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00403A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00403A",
+        "etf_name": "主動元大台灣領航",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00404A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00404A",
+        "etf_name": "主動聯博動能50",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00405A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00405A",
+        "etf_name": "主動富邦台灣旗艦",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00406A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00406A",
+        "etf_name": "主動國泰台灣動能",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00407A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00407A",
+        "etf_name": "主動凱基台灣",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00408A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00408A",
+        "etf_name": "主動第一金優股息",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00409A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00409A",
+        "etf_name": "主動復華全球50",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00410A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00410A",
+        "etf_name": "主動永豐科技趨勢",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00412A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00412A",
+        "etf_name": "主動安聯亞半導體",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00413A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00413A",
+        "etf_name": "主動玉山關鍵科技",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00415A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00415A",
+        "etf_name": "主動群益核心50",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00416A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00416A",
+        "etf_name": "主動台新臺灣中小",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00418A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00418A",
+        "etf_name": "主動復華台灣新星",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00419A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00419A",
+        "etf_name": "主動施羅德AI台股",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00420A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00420A",
+        "etf_name": "主動野村亞洲科技",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00980A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00980A",
+        "etf_name": "主動野村臺灣優選",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00981A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00981A",
+        "etf_name": "主動統一台股增長",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00982A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00982A",
+        "etf_name": "主動群益台灣強棒",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00983A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00983A",
+        "etf_name": "主動中信ARK創新",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00984A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00984A",
+        "etf_name": "主動安聯台灣高息",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00985A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00985A",
+        "etf_name": "主動野村台灣50",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00986A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00986A",
+        "etf_name": "主動台新龍頭成長",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00987A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00987A",
+        "etf_name": "主動台新優勢成長",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00988A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00988A",
+        "etf_name": "主動統一全球創新",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00989A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00989A",
+        "etf_name": "主動摩根美國科技",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00990A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00990A",
+        "etf_name": "主動元大AI新經濟",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00991A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00991A",
+        "etf_name": "主動復華未來50",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00992A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00992A",
+        "etf_name": "主動群益科技創新",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00993A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00993A",
+        "etf_name": "主動安聯台灣成長",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00994A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00994A",
+        "etf_name": "主動第一金台股優",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00995A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00995A",
+        "etf_name": "主動中信台灣卓越",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00996A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00996A",
+        "etf_name": "主動兆豐台灣豐收",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00997A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00997A",
+        "etf_name": "主動群益美國增長",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    },
+    "00999A": {
+      "meta": {
+        "trade_date": "2026-11-26",
+        "etf_code": "00999A",
+        "etf_name": "主動野村臺灣高息",
+        "nav": null,
+        "aum_million": null,
+        "units_thousand": null,
+        "status": "PENDING",
+        "source": "官方網站",
+        "error_msg": "今日資料尚未公布，排程持續輪詢中",
+        "updated_at": "2026-11-26 20:26:57"
+      },
+      "changes": [],
+      "note": "當日資料尚未完成更新，不進行出清判定"
+    }
+  },
+  "rankings": {
+    "top_buy_amount": [],
+    "top_sell_amount": [],
+    "top_buy_lots": [],
+    "top_sell_lots": [],
+    "most_etf_buy": [],
+    "most_etf_sell": [],
+    "active_adj_buy": [],
+    "active_adj_sell": []
+  },
+  "sector_flow": [],
+  "foreign_top10_buy": [
+    {
+      "stock_code": "00991A",
+      "stock_name": "主動復華未來50",
+      "net_lots": 261476,
+      "close_price": 12.45,
+      "price_change": 0.78,
+      "pct_change": 6.68
+    },
+    {
+      "stock_code": "00406A",
+      "stock_name": "主動中信台灣收益",
+      "net_lots": 157931,
+      "close_price": 6.73,
+      "price_change": 0.47,
+      "pct_change": 7.51
+    },
+    {
+      "stock_code": "00981A",
+      "stock_name": "主動統一台股增長",
+      "net_lots": 157037,
+      "close_price": 21.89,
+      "price_change": 1.36,
+      "pct_change": 6.62
+    },
+    {
+      "stock_code": "00403A",
+      "stock_name": "主動統一升級50",
+      "net_lots": 101763,
+      "close_price": 7.92,
+      "price_change": 0.44,
+      "pct_change": 5.88
+    },
+    {
+      "stock_code": "00405A",
+      "stock_name": "主動富邦台灣龍耀",
+      "net_lots": 37412,
+      "close_price": 6.53,
+      "price_change": 0.45,
+      "pct_change": 7.4
+    },
+    {
+      "stock_code": "009828",
+      "stock_name": "中信台日韓PCB",
+      "net_lots": 32582,
+      "close_price": 6.73,
+      "price_change": 0.52,
+      "pct_change": 8.37
+    },
+    {
+      "stock_code": "3481",
+      "stock_name": "群創",
+      "net_lots": 24423,
+      "close_price": 32.8,
+      "price_change": 2.25,
+      "pct_change": 7.36
+    },
+    {
+      "stock_code": "2887",
+      "stock_name": "台新新光金",
+      "net_lots": 20604,
+      "close_price": 35.3,
+      "price_change": 1.3,
+      "pct_change": 3.82
+    },
+    {
+      "stock_code": "2882",
+      "stock_name": "國泰金",
+      "net_lots": 20171,
+      "close_price": 104.5,
+      "price_change": 4.0,
+      "pct_change": 3.98
+    },
+    {
+      "stock_code": "00407A",
+      "stock_name": "主動凱基台灣",
+      "net_lots": 19584,
+      "close_price": 7.25,
+      "price_change": 0.46,
+      "pct_change": 6.77
+    }
+  ],
+  "foreign_top10_sell": [
+    {
+      "stock_code": "1802",
+      "stock_name": "台玻",
+      "net_lots": -81442,
+      "close_price": 59.7,
+      "price_change": -0.2,
+      "pct_change": -0.33
+    },
+    {
+      "stock_code": "2890",
+      "stock_name": "永豐金",
+      "net_lots": -52703,
+      "close_price": 35.55,
+      "price_change": -0.8,
+      "pct_change": -2.2
+    },
+    {
+      "stock_code": "2886",
+      "stock_name": "兆豐金",
+      "net_lots": -46479,
+      "close_price": 48.25,
+      "price_change": -1.45,
+      "pct_change": -2.92
+    },
+    {
+      "stock_code": "2892",
+      "stock_name": "第一金",
+      "net_lots": -33654,
+      "close_price": 36.65,
+      "price_change": -0.3,
+      "pct_change": -0.81
+    },
+    {
+      "stock_code": "2303",
+      "stock_name": "聯電",
+      "net_lots": -21904,
+      "close_price": 88.8,
+      "price_change": 1.4,
+      "pct_change": 1.6
+    },
+    {
+      "stock_code": "0050",
+      "stock_name": "元大台灣50",
+      "net_lots": -19874,
+      "close_price": 92.85,
+      "price_change": 2.55,
+      "pct_change": 2.82
+    },
+    {
+      "stock_code": "2330",
+      "stock_name": "台積電",
+      "net_lots": -18134,
+      "close_price": 2145.0,
+      "price_change": -5.0,
+      "pct_change": -0.23
+    },
+    {
+      "stock_code": "2412",
+      "stock_name": "中華電",
+      "net_lots": -14540,
+      "close_price": 166.5,
+      "price_change": 3.0,
+      "pct_change": 1.83
+    },
+    {
+      "stock_code": "1216",
+      "stock_name": "統一",
+      "net_lots": -8934,
+      "close_price": 78.5,
+      "price_change": -0.2,
+      "pct_change": -0.25
+    },
+    {
+      "stock_code": "2885",
+      "stock_name": "元大金",
+      "net_lots": -6920,
+      "close_price": 63.8,
+      "price_change": 2.3,
+      "pct_change": 3.74
+    }
+  ],
+  "cross_analysis": {
+    "both_buy": [],
+    "both_sell": [],
+    "foreign_sell_etf_buy": [],
+    "foreign_buy_etf_sell": [],
+    "active_etf_foreign": [
+      {
+        "etf_code": "00981A",
+        "foreign_net_lots": 157037
+      },
+      {
+        "etf_code": "00980A",
+        "foreign_net_lots": 3472
+      },
+      {
+        "etf_code": "00982A",
+        "foreign_net_lots": 13374
+      },
+      {
+        "etf_code": "00991A",
+        "foreign_net_lots": 261476
+      },
+      {
+        "etf_code": "00403A",
+        "foreign_net_lots": 101763
+      },
+      {
+        "etf_code": "0050",
+        "foreign_net_lots": -19874
+      }
+    ]
+  },
+  "daily_report_markdown": "# 台股主動型 ETF 與外資籌碼日報（2026-11-26）\n> 產出時間：2026-11-26 20:27:57 (Asia/Taipei)｜資料口徑：TWSE 官方數據與各投信完整投資組合\n\n## 1. 今日台股大盤與三大法人摘要（已確認事實）\n- **加權指數**：39151.81 點（漲跌 +956.38 點 / +2.50%），成交金額 **8453.37 億元**\n- **外資（不含自營商）**：**-491.81 億元**（連續 -1 日，累計 -491.81 億元）\n- **投信**：**+212.13 億元**｜**自營商**：**+128.65 億元**｜**三大法人合計**：**-151.03 億元**\n\n## 2. 00981A 主動統一台股增長 完整持股異動\n- ⚠️ 00981A 今日資料狀態：PENDING，系統持續自動輪詢補抓中。\n\n## 3. 主動型 ETF 整體加減碼排行榜（估算金額前 5 名）\n- **合計加碼金額前 5**：無\n- **合計減碼金額前 5**：無\n\n## 4. 外資與主動型 ETF 交叉分析（推論與比對）\n- **土洋同買（外資買超且主動ETF加碼）**：無顯著重疊\n- **土洋對作（外資賣超但主動ETF逆勢加碼）**：無顯著重疊\n- **備註**：外資買進主動型 ETF 受益憑證屬於次級市場交易，不等同基金經理人直接買進成分股。\n\n## 5. 尚未更新或待確認資料\n- 尚未公布當日完整持股之 ETF：00400A, 00401A, 00402A, 00403A, 00404A, 00405A, 00406A, 00407A, 00408A, 00409A, 00410A, 00412A, 00413A, 00415A, 00416A, 00418A, 00419A, 00420A, 00980A, 00981A, 00982A, 00983A, 00984A, 00985A, 00986A, 00987A, 00988A, 00989A, 00990A, 00991A, 00992A, 00993A, 00994A, 00995A, 00996A, 00997A, 00999A（排程將於 23:00 前每 15 分鐘自動補抓並更新本報告）。"
+}
