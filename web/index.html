@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台股主動型 ETF 持股異動與外資籌碼追蹤系統</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { background-color: #0b0f19; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif; }
+    .tw-up { color: #f87171; }
+    .tw-down { color: #4ade80; }
+    .bg-tw-up { background-color: rgba(239, 68, 68, 0.15); color: #fca5a5; }
+    .bg-tw-down { background-color: rgba(34, 197, 94, 0.15); color: #86efac; }
+    .card { background-color: #131a2a; border: 1px solid #1e293b; border-radius: 0.75rem; }
+  </style>
+</head>
+<body class="p-3 md:p-6 max-w-[1600px] mx-auto">
+  <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-4 border-b border-slate-800">
+    <div>
+      <h1 class="text-xl md:text-2xl font-bold text-white tracking-wide">台股主動型 ETF 籌碼與外資動向追蹤</h1>
+      <p id="metaBanner" class="text-xs text-slate-400 mt-1">載入資料中...</p>
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+      <label class="text-xs text-slate-400">交易日期：</label>
+      <select id="dateSelector" class="bg-slate-900 border border-slate-700 text-sm rounded px-3 py-1.5 text-white"></select>
+      <button onclick="exportCSV()" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium px-3 py-2 rounded">匯出 CSV</button>
+    </div>
+  </header>
+
+  <section id="marketCards" class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6"></section>
+
+  <section class="card p-4 md:p-5 mb-6 border-l-4 border-l-amber-500">
+    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2 mb-4">
+      <div>
+        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">核心追蹤首選</span>
+        <h2 class="text-lg font-bold text-white inline-block ml-2">00981A 主動統一台股增長 — 每日完整持股異動</h2>
+      </div>
+      <div id="etf981Meta" class="text-xs text-slate-400"></div>
+    </div>
+    <div class="flex flex-wrap gap-2 mb-3">
+      <input id="search981" type="text" placeholder="搜尋股票代碼或名稱..." class="bg-slate-900 border border-slate-700 rounded px-3 py-1 text-xs text-white" oninput="render981Table()">
+      <select id="filterAction981" class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white" onchange="render981Table()">
+        <option value="ALL">全部異動類型</option>
+        <option value="新增持股">新增持股</option>
+        <option value="加碼持股">加碼持股</option>
+        <option value="減碼持股">減碼持股</option>
+        <option value="完全出清">完全出清</option>
+      </select>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs text-right border-collapse">
+        <thead>
+          <tr class="border-b border-slate-800 text-slate-400">
+            <th class="py-2 px-2 text-left">代碼/名稱</th>
+            <th class="py-2 px-2 text-center">異動類型</th>
+            <th class="py-2 px-2">前日張數</th>
+            <th class="py-2 px-2">當日張數</th>
+            <th class="py-2 px-2">增減張數</th>
+            <th class="py-2 px-2">排除規模調整(張)</th>
+            <th class="py-2 px-2">權重變化</th>
+            <th class="py-2 px-2">收盤價(漲跌%)</th>
+            <th class="py-2 px-2">估算金額(萬)</th>
+            <th class="py-2 px-2 text-left">性質判讀 (估算)</th>
+          </tr>
+        </thead>
+        <tbody id="tbody981" class="divide-y divide-slate-800/60"></tbody>
+      </table>
+    </div>
+    <p class="text-[11px] text-slate-500 mt-2">* 註：排除規模調整與估算金額係依投信公布之完整投資組合與流通單位數推算，不等於基金經理人實際成交單。</p>
+  </section>
+
+  <section class="card p-4 md:p-5 mb-6">
+    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2 mb-4">
+      <h2 class="text-base font-bold text-white">其他主要主動型 ETF 持股異動明細與更新狀態</h2>
+      <select id="otherEtfSelector" class="bg-slate-900 border border-slate-700 rounded px-3 py-1.5 text-xs text-white" onchange="renderOtherEtf()"></select>
+    </div>
+    <div id="etfStatusBadges" class="flex flex-wrap gap-2 mb-4"></div>
+    <div class="overflow-x-auto max-h-96">
+      <table class="w-full text-xs text-right">
+        <thead class="sticky top-0 bg-[#131a2a] border-b border-slate-800 text-slate-400">
+          <tr>
+            <th class="py-2 px-2 text-left">代碼/名稱</th>
+            <th class="py-2 px-2 text-center">類型</th>
+            <th class="py-2 px-2">前日張數</th>
+            <th class="py-2 px-2">當日張數</th>
+            <th class="py-2 px-2">增減張數</th>
+            <th class="py-2 px-2">權重變化</th>
+            <th class="py-2 px-2">估算金額(萬)</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyOtherEtf" class="divide-y divide-slate-800/60"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+    <div class="card p-4">
+      <h3 class="text-base font-bold tw-up mb-1">上市外資買超前 10 名</h3>
+      <p class="text-[11px] text-slate-400 mb-3">口徑：證交所外陸資（不含外資自營商）｜單位：張</p>
+      <table class="w-full text-xs text-right">
+        <thead>
+          <tr class="border-b border-slate-800 text-slate-400">
+            <th class="py-2 text-center">名次</th><th class="py-2 text-left">代碼/名稱</th>
+            <th class="py-2">買超張數</th><th class="py-2">收盤價</th><th class="py-2">漲跌</th><th class="py-2">漲跌幅</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyForeignBuy" class="divide-y divide-slate-800/60"></tbody>
+      </table>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-base font-bold tw-down mb-1">上市外資賣超前 10 名</h3>
+      <p class="text-[11px] text-slate-400 mb-3">口徑：證交所外陸資（不含外資自營商）｜單位：張</p>
+      <table class="w-full text-xs text-right">
+        <thead>
+          <tr class="border-b border-slate-800 text-slate-400">
+            <th class="py-2 text-center">名次</th><th class="py-2 text-left">代碼/名稱</th>
+            <th class="py-2">賣超張數</th><th class="py-2">收盤價</th><th class="py-2">漲跌</th><th class="py-2">漲跌幅</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyForeignSell" class="divide-y divide-slate-800/60"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+    <div class="card p-4">
+      <h3 class="text-base font-bold text-white mb-3">主動型 ETF 產業資金流向 (估算萬元)</h3>
+      <canvas id="sectorChart" height="160"></canvas>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-base font-bold text-white mb-3">外資與主動型 ETF 交叉比對</h3>
+      <div id="crossBox" class="space-y-3 text-xs"></div>
+    </div>
+  </section>
+
+  <section class="card p-4 md:p-6">
+    <h2 class="text-base font-bold text-white mb-3">每日籌碼分析日報 (自動生成)</h2>
+    <pre id="dailyReportBox" class="whitespace-pre-wrap text-xs text-slate-300 leading-relaxed font-sans bg-slate-900/70 p-4 rounded"></pre>
+  </section>
+
+  <script>
+    let currentData = null;
+    let sectorChartInstance = null;
+    const DATA_BASE = "../data/json";
+
+    const fmtColor = (val) => val > 0 ? "tw-up" : (val < 0 ? "tw-down" : "text-slate-300");
+    const fmtSign = (val, digits=2) => val > 0 ? `+${val.toFixed(digits)}` : val.toFixed(digits);
+
+    async function init() {
+      const idxRes = await fetch(`${DATA_BASE}/index.json?t=${Date.now()}`);
+      const idx = await idxRes.json();
+      const sel = document.getElementById("dateSelector");
+      idx.dates.forEach(d => {
+        const opt = document.createElement("option");
+        opt.value = d; opt.textContent = d;
+        sel.appendChild(opt);
+      });
+      sel.onchange = () => loadDate(sel.value);
+      await loadDate(idx.latest);
+    }
+
+    async function loadDate(dateStr) {
+      const res = await fetch(`${DATA_BASE}/${dateStr}.json?t=${Date.now()}`);
+      currentData = await res.json();
+      renderAll();
+    }
+
+    function renderAll() {
+      const d = currentData;
+      const m = d.market_summary;
+      document.getElementById("metaBanner").textContent =
+        `資料日期：${d.trade_date}（基準前日：${d.prev_date || '無'}）｜最後更新：${d.generated_at}｜來源：TWSE 證交所 & 各投信官網`;
+
+      document.getElementById("marketCards").innerHTML = `
+        <div class="card p-3"><div class="text-xs text-slate-400">加權指數</div><div class="text-lg font-bold ${fmtColor(m.taiex_change)}">${m.taiex_close}</div><div class="text-xs ${fmtColor(m.taiex_change)}">${fmtSign(m.taiex_change)} (${fmtSign(m.taiex_pct)}%)</div></div>
+        <div class="card p-3"><div class="text-xs text-slate-400">大盤成交金額</div><div class="text-lg font-bold text-white">${m.turnover_billion} 億</div><div class="text-xs text-slate-500">TWSE 上市總計</div></div>
+        <div class="card p-3"><div class="text-xs text-slate-400">外資買賣超</div><div class="text-lg font-bold ${fmtColor(m.foreign_net_billion)}">${fmtSign(m.foreign_net_billion)} 億</div><div class="text-xs text-slate-400">連 ${m.foreign_streak_days} 日 (${fmtSign(m.foreign_streak_amount)} 億)</div></div>
+        <div class="card p-3"><div class="text-xs text-slate-400">投信買賣超</div><div class="text-lg font-bold ${fmtColor(m.trust_net_billion)}">${fmtSign(m.trust_net_billion)} 億</div><div class="text-xs text-slate-500">本土法人動向</div></div>
+        <div class="card p-3"><div class="text-xs text-slate-400">三大法人合計</div><div class="text-lg font-bold ${fmtColor(m.total_inst_billion)}">${fmtSign(m.total_inst_billion)} 億</div><div class="text-xs text-slate-500">自營商 ${fmtSign(m.dealer_net_billion)} 億</div></div>
+      `;
+
+      render981Table();
+      renderEtfBadgesAndSelect();
+      renderForeignTables();
+      renderSectorAndCross();
+      document.getElementById("dailyReportBox").textContent = d.daily_report_markdown;
+    }
+
+    function render981Table() {
+      const etf = currentData.etf_details["00981A"];
+      const tbody = document.getElementById("tbody981");
+      if (!etf || etf.meta.status !== "UPDATED") {
+        document.getElementById("etf981Meta").textContent = `狀態：${etf?.meta?.status || '尚未公布'}`;
+        tbody.innerHTML = `<tr><td colspan="10" class="py-4 text-center text-amber-400">00981A 今日完整持股尚未公布，排程每 15 分鐘自動檢查更新中。</td></tr>`;
+        return;
+      }
+      document.getElementById("etf981Meta").textContent =
+        `規模：${etf.meta.aum_million} 百萬｜流通單位數：${etf.meta.units_thousand} 千單位 (比例 ${etf.unit_ratio}x)｜更新：${etf.meta.updated_at}`;
+
+      const kw = document.getElementById("search981").value.trim();
+      const act = document.getElementById("filterAction981").value;
+      const rows = etf.changes.filter(c =>
+        (act === "ALL" || c.action === act) &&
+        (!kw || c.stock_code.includes(kw) || c.stock_name.includes(kw))
+      );
+
+      tbody.innerHTML = rows.map(c => `
+        <tr class="hover:bg-slate-800/40">
+          <td class="py-2 px-2 text-left font-medium text-white">${c.stock_code} ${c.stock_name} <span class="text-[10px] text-slate-500">${c.sector}</span></td>
+          <td class="py-2 px-2 text-center"><span class="px-1.5 py-0.5 rounded text-[11px] ${c.diff_lots >= 0 ? 'bg-tw-up' : 'bg-tw-down'}">${c.action}</span></td>
+          <td class="py-2 px-2">${c.prev_lots.toLocaleString()}</td>
+          <td class="py-2 px-2">${c.today_lots.toLocaleString()}</td>
+          <td class="py-2 px-2 font-semibold ${fmtColor(c.diff_lots)}">${fmtSign(c.diff_lots, 1)}</td>
+          <td class="py-2 px-2 ${fmtColor(c.active_adj_lots)}">${fmtSign(c.active_adj_lots, 1)}</td>
+          <td class="py-2 px-2 ${fmtColor(c.weight_diff)}">${fmtSign(c.weight_diff, 2)}%</td>
+          <td class="py-2 px-2 ${fmtColor(c.pct_change)}">${c.close_price} (${fmtSign(c.pct_change)}%)</td>
+          <td class="py-2 px-2 font-semibold ${fmtColor(c.est_amount_wan)}">${fmtSign(c.est_amount_wan, 0)}</td>
+          <td class="py-2 px-2 text-left text-slate-300">${c.driver_tag}</td>
+        </tr>
+      `).join("") || `<tr><td colspan="10" class="py-4 text-center text-slate-500">無符合篩選條件的異動資料</td></tr>`;
+    }
+
+    function renderEtfBadgesAndSelect() {
+      const details = currentData.etf_details;
+      const badges = document.getElementById("etfStatusBadges");
+      const sel = document.getElementById("otherEtfSelector");
+      badges.innerHTML = ""; sel.innerHTML = "";
+      Object.keys(details).forEach(code => {
+        const m = details[code].meta;
+        const ok = m.status === "UPDATED";
+        badges.innerHTML += `<span class="text-[11px] px-2 py-0.5 rounded border ${ok ? 'border-emerald-700 bg-emerald-950/40 text-emerald-300' : 'border-amber-700 bg-amber-950/40 text-amber-300'}">${code}: ${ok ? '已更新' : m.status}</span>`;
+        if (code !== "00981A") {
+          const opt = document.createElement("option");
+          opt.value = code; opt.textContent = `${code} ${m.etf_name} (${ok ? '已更新' : m.status})`;
+          sel.appendChild(opt);
+        }
+      });
+      renderOtherEtf();
+    }
+
+    function renderOtherEtf() {
+      const code = document.getElementById("otherEtfSelector").value;
+      const etf = currentData.etf_details[code];
+      const tbody = document.getElementById("tbodyOtherEtf");
+      if (!etf || etf.meta.status !== "UPDATED") {
+        tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-slate-400">${code} 今日完整持股尚未公布或缺乏基準日</td></tr>`;
+        return;
+      }
+      tbody.innerHTML = etf.changes.map(c => `
+        <tr>
+          <td class="py-1.5 px-2 text-left text-white">${c.stock_code} ${c.stock_name}</td>
+          <td class="py-1.5 px-2 text-center ${fmtColor(c.diff_lots)}">${c.action}</td>
+          <td class="py-1.5 px-2">${c.prev_lots}</td>
+          <td class="py-1.5 px-2">${c.today_lots}</td>
+          <td class="py-1.5 px-2 ${fmtColor(c.diff_lots)}">${fmtSign(c.diff_lots, 1)}</td>
+          <td class="py-1.5 px-2 ${fmtColor(c.weight_diff)}">${fmtSign(c.weight_diff, 2)}%</td>
+          <td class="py-1.5 px-2 ${fmtColor(c.est_amount_wan)}">${fmtSign(c.est_amount_wan, 0)}</td>
+        </tr>
+      `).join("");
+    }
+
+    function renderForeignTables() {
+      const renderRows = (list) => list.map((r, i) => `
+        <tr>
+          <td class="py-1.5 text-center text-slate-400">${i+1}</td>
+          <td class="py-1.5 text-left text-white font-medium">${r.stock_code} ${r.stock_name}</td>
+          <td class="py-1.5 font-semibold ${fmtColor(r.net_lots)}">${r.net_lots.toLocaleString()}</td>
+          <td class="py-1.5">${r.close_price}</td>
+          <td class="py-1.5 ${fmtColor(r.price_change)}">${fmtSign(r.price_change)}</td>
+          <td class="py-1.5 ${fmtColor(r.pct_change)}">${fmtSign(r.pct_change)}%</td>
+        </tr>
+      `).join("");
+      document.getElementById("tbodyForeignBuy").innerHTML = renderRows(currentData.foreign_top10_buy);
+      document.getElementById("tbodyForeignSell").innerHTML = renderRows(currentData.foreign_top10_sell);
+    }
+
+    function renderSectorAndCross() {
+      const sf = currentData.sector_flow;
+      if (sectorChartInstance) sectorChartInstance.destroy();
+      sectorChartInstance = new Chart(document.getElementById("sectorChart"), {
+        type: "bar",
+        data: {
+          labels: sf.map(x => x.sector),
+          datasets: [{
+            label: "估算淨流向 (萬元)",
+            data: sf.map(x => x.net_amount_wan),
+            backgroundColor: sf.map(x => x.net_amount_wan >= 0 ? "rgba(239,68,68,0.75)" : "rgba(34,197,94,0.75)")
+          }]
+        },
+        options: { indexAxis: "y", plugins: { legend: { display: false } }, scales: { x: { ticks: { color: "#94a3b8" } }, y: { ticks: { color: "#e2e8f0" } } } }
+      });
+
+      const cr = currentData.cross_analysis;
+      document.getElementById("crossBox").innerHTML = `
+        <div class="p-2.5 rounded bg-slate-900/80"><div class="font-semibold tw-up mb-1">外資買超 + 主動 ETF 加碼（土洋同買）</div><div>${cr.both_buy.map(x => `${x.stock_code} ${x.stock_name} (外資${x.foreign_net_lots}張 / ETF${fmtSign(x.total_diff_lots,0)}張)`).join("、") || "無"}</div></div>
+        <div class="p-2.5 rounded bg-slate-900/80"><div class="font-semibold text-amber-300 mb-1">外資賣超 + 主動 ETF 逆勢加碼（投信接刀/對作）</div><div>${cr.foreign_sell_etf_buy.map(x => `${x.stock_code} ${x.stock_name} (外資${x.foreign_net_lots}張 / ETF${fmtSign(x.total_diff_lots,0)}張)`).join("、") || "無"}</div></div>
+        <div class="p-2.5 rounded bg-slate-900/80"><div class="font-semibold tw-down mb-1">外資賣超 + 主動 ETF 減碼（土洋同賣）</div><div>${cr.both_sell.map(x => `${x.stock_code} ${x.stock_name}`).join("、") || "無"}</div></div>
+        <div class="p-2.5 rounded bg-slate-900/80"><div class="font-semibold text-sky-300 mb-1">外資對主要 ETF 受益憑證買賣超（張）</div><div>${cr.active_etf_foreign.map(x => `${x.etf_code}: <span class="${fmtColor(x.foreign_net_lots)}">${x.foreign_net_lots}</span>`).join(" ｜ ") || "無交易"}</div></div>
+      `;
+    }
+
+    function exportCSV() {
+      const etf = currentData.etf_details["00981A"];
+      if (!etf || !etf.changes) return;
+      const header = "日期,ETF,股票代碼,股票名稱,異動類型,前日張數,當日張數,增減張數,排除規模調整張數,權重變化,收盤價,估算金額(萬),判讀\n";
+      const rows = etf.changes.map(c =>
+        `${currentData.trade_date},00981A,${c.stock_code},${c.stock_name},${c.action},${c.prev_lots},${c.today_lots},${c.diff_lots},${c.active_adj_lots},${c.weight_diff},${c.close_price},${c.est_amount_wan},${c.driver_tag}`
+      ).join("\n");
+      const blob = new Blob(["\uFEFF" + header + rows], { type: "text/csv;charset=utf-8;" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `00981A_chip_${currentData.trade_date}.csv`;
+      a.click();
+    }
+
+    init();
+  </script>
+</body>
+</html>
